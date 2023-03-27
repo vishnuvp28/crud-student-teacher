@@ -2,37 +2,55 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ .nav-styles{
+  padding : 12px;
+  width : 100%;
+  background-color: rgb(35, 35, 35);
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
+  gap :0.5rem;
+}
+
+
+.d-block {
+object-fit: contain;
+height: 650px;
+width: 1000px;
+}
+
+.main-content{
+
+  background-color: black;
+}
+.navbar{
+  width:100%;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.dbtn{
+  margin-left: 30px;
+}
+
+.form{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  align-items:center ;
+  background: linear-gradient(to top,rgba(0,0,0, 0.5)50%,rgba(0,0,0,0.5)50%),url(https://www.timeshighereducation.com/sites/default/files/styles/article785xauto/public/pa-consulting-modern-student-istock-1152767923_0.jpg?itok=G6Ny_tin);
+  color:white;
+  height: 109vh;
 }
 
-.App-link {
-  color: #61dafb;
+h1{
+  color:white;
+  background-color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.d-block{
+  background-image: linear-gradient(to top,rgba(0,0,0, 0.8)50%,rgba(0,0,0,0.8)50%),url(https://i0.wp.com/rbms.info/wp-content/uploads/2014/05/special-collections-books-700x300.jpg?resize=640%2C300);
+
 }
+
