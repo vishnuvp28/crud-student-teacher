@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Base } from "./Base";
 import { styled } from "@mui/material/styles";
@@ -14,9 +14,9 @@ import Button from 'react-bootstrap/Button';
 import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { teacherData } from "./teacherdata";
 import { useHistory } from "react-router-dom";
-import ViewListIcon from '@mui/icons-material/ViewList';
+import InfoIcon from "@mui/icons-material/Info";
+
 
 
 
@@ -40,13 +40,14 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-export function Teacher() {
-  const [user, setUser] = useState(teacherData);
+
+
+export function Teacher({teacher,setTeacher}) {
   const history=useHistory();
 
   const deleteUser = (person)=>{
-    const alterList=user.filter((per)=>per.id !== person)
-    setUser(alterList)
+    const alterList=teacher.filter((per)=>per.id !== person)
+    setTeacher(alterList)
   }
 
   return (
@@ -71,8 +72,8 @@ export function Teacher() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {user.map((std,index) => (
-              <StyledTableRow key={index}>
+            {teacher.map((std,idx) => (
+              <StyledTableRow  key={idx}>
                 <StyledTableCell component="th" scope="row">
                   {std.id}
                 </StyledTableCell>
@@ -95,11 +96,11 @@ export function Teacher() {
                   {std.contact}
                 </StyledTableCell>
                 <StyledTableCell>
-                  <IconButton variant="contained" color="success" onClick={() => history.push("/edit/teacher")}>
+                  <IconButton variant="contained" color="success" onClick={() => history.push(`/editteacher/${std.id}`)}>
                     <EditIcon></EditIcon>
                   </IconButton>
-                  <IconButton variant="contained" color="black" >
-                    <ViewListIcon></ViewListIcon>
+                  <IconButton variant="contained" color="primary"  onClick={()=>history.push(`/viewteacher/${idx}`)} >
+                    <InfoIcon></InfoIcon>
                   </IconButton>
                   <IconButton variant="contained" color="error" onClick={()=>deleteUser(std.id)}>
                     <DeleteIcon></DeleteIcon>

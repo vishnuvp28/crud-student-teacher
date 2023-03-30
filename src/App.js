@@ -1,70 +1,64 @@
 // import logo from './logo.svg';
-import './App.css';
-import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import  Dashboard  from './Dashboard';
-import { Student } from './Student';
-import { Teacher } from './Teacher';
-import { AddStudent } from './AddStudent';
-import { AddTeacher } from './AddTeacher';
-import { EditStudent } from './EditStudent';
-import { EditTeacher } from './EditTeacher';
-// import { teacherData } from './teacherdata';
-import { data } from './data';
+import "./App.css";
+import React, { useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import { Student } from "./Student";
+import { Teacher } from "./Teacher";
+import { AddStudent } from "./AddStudent";
+import { AddTeacher } from "./AddTeacher";
+import { EditStudent } from "./EditStudent";
+import { EditTeacher } from "./EditTeacher";
+import { teacherData } from "./teacherdata";
+import { data } from "./data";
+import { ViewStudent } from "./ViewStudent";
+import { ViewTeacher } from "./ViewTeacher";
 
 export function App() {
-  const [user, setUser] = useState(data)
+  const [teacher, setTeacher] = useState(teacherData);
+
+  const [student, setStudent] = useState(data);
+console.log(student)
   return (
-
     <div className="App">
+      <Switch>
+        <Route exact path="/">
+          <Dashboard  />
+        </Route>
 
-    
-     <Switch>
+        <Route path="/student">
+          <Student student={student} setStudent={setStudent} />
+        </Route>
 
-       <Route exact path='/'>
-        <Dashboard
-        user={user}
-        setUser={setUser}/>
-       </Route>
+        <Route path="/teacher">
+          <Teacher teacher={teacher} setTeacher={setTeacher} />
+        </Route>
 
-       <Route path='/student'>
-        <Student
-        user={user}
-        setUser={setUser}/>
-       </Route>
-       
-       <Route path='/teacher'>
-        <Teacher
-        user={user}
-        setUser={setUser}/>
-       </Route>
+        <Route path="/add/student">
+          <AddStudent student={student} setStudent={setStudent} />
+        </Route>
 
-       <Route path='/add/teacher'>
-        <AddTeacher
-        user={user}
-        setUser={setUser}/>
-       </Route>
+        <Route path="/add/teacher">
+          <AddTeacher teacher={teacher} setTeacher={setTeacher} />
+        </Route>
 
-       
-       <Route path='/add/student'>
-        <AddStudent
-         user={user}
-        setUser={setUser}
-     />
-       </Route>
+        <Route path="/editstudent/:id">
+          <EditStudent student={student} setStudent={setStudent}/>
+        </Route>
 
-       <Route path='/edit/student'>
-        <EditStudent user={user}
-        setUser={setUser}/>
-       </Route>
+        <Route path="/editteacher/:id">
+          <EditTeacher teacher={teacher} setTeacher={setTeacher} />
+        </Route>
 
-       <Route path='/edit/teacher'>
-        <EditTeacher user={user}
-        setUser={setUser}/>
-       </Route>
+        <Route path="/viewstudent/:id">
+          <ViewStudent student={student} setStudent={setStudent}/>
+        </Route>
 
-     </Switch>
-   
+        <Route path="/viewteacher/:id">
+          <ViewTeacher teacher={teacher} setTeacher={setTeacher} />
+        </Route>
+
+      </Switch>
     </div>
   );
 }

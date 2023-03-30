@@ -11,7 +11,7 @@ const Dashboard = ({ children }) => {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://www.shutterstock.com/shutterstock/photos/309239105/display_1500/stock-photo-teacher-asking-her-students-a-question-at-the-elementary-school-309239105.jpg"
+                src="https://img.freepik.com/premium-photo/teenager-student-girl-yellow-pointing-finger-side_1368-40175.jpg"
                 alt="First slide"
               />
               <Carousel.Caption>
@@ -24,7 +24,7 @@ const Dashboard = ({ children }) => {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://img.freepik.com/free-photo/front-view-female-student-wearing-backpack-holding-copybook-pen-thinking-blue-wall_140725-46520.jpg"
+                src="https://thumbs.dreamstime.com/b/school-child-boy-glasses-think-classroom-kid-students-book-primary-reading-excellent-pupil-learn-lesson-dream-education-53439069.jpg"
                 alt="Second slide"
               />
 
@@ -49,7 +49,7 @@ const Dashboard = ({ children }) => {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://thumbs.dreamstime.com/b/school-child-boy-glasses-think-classroom-kid-students-book-primary-reading-excellent-pupil-learn-lesson-dream-education-53439069.jpg"
+               src="https://www.shutterstock.com/image-photo/teacher-asking-her-students-question-260nw-309239105.jpg"
                 alt="Second slide"
               />
 
@@ -85,7 +85,7 @@ const Dashboard = ({ children }) => {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://img.freepik.com/premium-photo/teenager-student-girl-yellow-pointing-finger-side_1368-40175.jpg"
+                src="https://img.freepik.com/free-photo/front-view-female-student-wearing-backpack-holding-copybook-pen-thinking-blue-wall_140725-46520.jpg"
                 alt="Second slide"
               />
 
@@ -102,3 +102,5 @@ const Dashboard = ({ children }) => {
 };
 
 export default Dashboard;
+
+

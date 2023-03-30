@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Base } from "./Base";
-import { data } from "./data";
 import { styled } from "@mui/material/styles";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from "@mui/material/Table";
@@ -16,7 +15,8 @@ import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useHistory } from "react-router-dom";
-import ViewListIcon from '@mui/icons-material/ViewList';
+import InfoIcon from "@mui/icons-material/Info";
+
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -38,13 +38,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-export function Student() {
-  const [user, setUser] = useState(data);
+export function Student({student,setStudent}) {
   const history=useHistory();
-
+// const[user,setUser]=useState(data)
   const deleteUser = (person)=>{
-    const alterList=user.filter((per)=>per.id !== person)
-    setUser(alterList)
+    const alterList=student.filter((per)=>per.id !== person)
+    setStudent(alterList)
   }
 
   return (
@@ -52,7 +51,7 @@ export function Student() {
       <div className="data">
         <h1>Student</h1><br></br>
 
-     
+     <div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
@@ -69,8 +68,8 @@ export function Student() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {user.map((std,index) => (
-              <StyledTableRow key={index}>
+            {student.map((std,idx) => (
+              <StyledTableRow key={idx} idx={idx} >
                 <StyledTableCell component="th" scope="row">
                   {std.id}
                 </StyledTableCell>
@@ -93,13 +92,13 @@ export function Student() {
                   {std.contact}
                 </StyledTableCell>
                 <StyledTableCell>
-                  <IconButton variant="contained" color="success" onClick={() => history.push("/edit/student")}>
+                  <IconButton variant="contained" color="success" onClick={() => history.push(`/editstudent/${std.id}`)}>
                     <EditIcon></EditIcon>
                   </IconButton>
-                  <IconButton variant="contained" color="black" >
-                    <ViewListIcon></ViewListIcon>
+                  <IconButton variant="contained" color="primary"  onClick={()=>history.push(`/viewstudent/${idx}`)}>
+                    <InfoIcon></InfoIcon>
                   </IconButton>
-                  <IconButton variant="contained" color="error" onClick={() =>deleteUser(std.id)}>
+                  <IconButton variant="contained" color="error" onClick={()=>deleteUser(std.id)}>
                     <DeleteIcon></DeleteIcon>
                   </IconButton>
                 </StyledTableCell>
@@ -110,11 +109,12 @@ export function Student() {
         </Table>
       </TableContainer>
     </div>
+
     
            
     <div className="btn">  <Button onClick={()=>history.push('/add/student')}>Create new user</Button></div>
 
-
+    </div>
     </Base>
     
   );

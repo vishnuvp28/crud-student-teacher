@@ -5,17 +5,19 @@ import { useHistory } from "react-router-dom";
 import { Base } from "./Base";
 import { teacherData } from "./teacherdata";
 
-export function AddTeacher({user,setUser}) {
+export function AddTeacher({teacher,setTeacher}) {
+
+
   const history=useHistory();
 
 
-    const[id,setId]=useState();
-    const[name,setName]=useState();
-    const[standard,setStandard]=useState();
-    const[subject,setSubject]=useState();
-    const[address,setAddress]=useState();
-    const[email,setEmail]=useState();
-    const[contact,setContact]=useState();
+    const[id,setId]=useState('');
+    const[name,setName]=useState('');
+    const[standard,setStandard]=useState('');
+    const[subject,setSubject]=useState('');
+    const[address,setAddress]=useState('');
+    const[email,setEmail]=useState('');
+    const[contact,setContact]=useState('');
 
     const addStudUser=()=>{
         const newUser ={
@@ -28,7 +30,7 @@ export function AddTeacher({user,setUser}) {
             contact
         }
         console.log(newUser);
-        setUser([...user,newUser])
+        setTeacher([...teacher,newUser])
         history.push('/teacher')
     }
    

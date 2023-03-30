@@ -40,7 +40,7 @@ width: 1000px;
   flex-direction: column;
   align-items:center ;
   background: linear-gradient(to top,rgba(0,0,0, 0.5)50%,rgba(0,0,0,0.5)50%),url(https://www.timeshighereducation.com/sites/default/files/styles/article785xauto/public/pa-consulting-modern-student-istock-1152767923_0.jpg?itok=G6Ny_tin);
-  color:white;
+  /* color:white; */
   height: 109vh;
 }
 
@@ -53,4 +53,19 @@ h1{
   background-image: linear-gradient(to top,rgba(0,0,0, 0.8)50%,rgba(0,0,0,0.8)50%),url(https://i0.wp.com/rbms.info/wp-content/uploads/2014/05/special-collections-books-700x300.jpg?resize=640%2C300);
 
 }
+.card{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top,rgba(0,0,0, 0.5)50%,rgba(0,0,0,0.6)50%),url(https://i0.wp.com/rbms.info/wp-content/uploads/2014/05/special-collections-books-700x300.jpg?resize=640%2C300);
+ width:500px;
+ margin:0 auto;
+ padding:20px;
 
+}
+
+.user-card{
+  width: 250px;
+  color:white;
+ 
+}
